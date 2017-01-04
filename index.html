@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="focusData.js"></script>
+    <style>
+    #tb{
+        float: left;
+    }
+    #sort{
+        float:left;
+        margin-left: 20px;
+    }
+    #assgin{
+        float:left;
+        margin-left: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <button id="btn">排序</button>
+        </div>
+        <table id="tb">
+            <!--<tr>
+                <td></td>
+            </tr>-->
+        </table>
+        <table id="sort">
+
+        </table>
+        <table id="assgin">
+
+        </table>
+    </div>
+    <script>
+        window.onload = function () {
+            var tb = document.getElementById('tb');
+            var sort = document.getElementById('sort');
+            var assgin = document.getElementById('assgin');
+
+
+            focusData.forEach(function (element) {
+                var tr = document.createElement('tr');
+                element.forEach(function (val) {
+                    var td = document.createElement('td');
+                    td.innerHTML = val;
+                    tr.appendChild(td);
+                }, this);
+
+                tb.appendChild(tr);
+            }, this);
+
+
+
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                focusData.sort(function (a, b) {
+                    return b[1] - a[1];
+                });
+
+                var pec100 = 0;
+                var pec90 = Math.floor(focusData.length * 0.1);
+                var pec80 = Math.floor(focusData.length * 0.2);
+                var pec70 = Math.floor(focusData.length * 0.3);
+                var pec60 = Math.floor(focusData.length * 0.4);
+                var pec50 = Math.floor(focusData.length * 0.5);
+                var pec40 = Math.floor(focusData.length * 0.6);
+                var pec30 = Math.floor(focusData.length * 0.7);
+                var pec20 = Math.floor(focusData.length * 0.8);
+                var pec10 = Math.floor(focusData.length * 0.9);
+                var list = [pec100, pec90, pec80, pec70, pec60, pec50, pec40, pec30, pec20, pec10];
+
+                focusData.forEach(function (element) {
+                    var tr = document.createElement('tr');
+                    element.forEach(function (val) {
+                        var td = document.createElement('td');
+                        td.innerHTML = val;
+                        tr.appendChild(td);
+                    }, this);
+
+                    sort.appendChild(tr);
+                }, this);
+
+                focusData.forEach(function (element) {
+                    var tr = document.createElement('tr');
+
+                    var td = document.createElement('td');
+                    list.forEach(function (pos) {
+                        pos
+                    });
+                    tr.appendChild(td);
+                    assgin.appendChild(tr);
+                }, this);
+            }
+        }
+    </script>
+</body>
+
+</html>
